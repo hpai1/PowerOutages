@@ -30,9 +30,9 @@ The original dataframe had 1534 rows and 56 columns, but we only kept the ones r
 | POPDEN_URBAN       | The population density of urban areas in the affected region (persons per square mile).       |
 | AREAPCT_URBAN      | The percentage of the area classified as urban in the affected region.                        |
 
-# Data Cleaning and Exploratory Data Analysis
+## Data Cleaning and Exploratory Data Analysis
 
-## Data Cleaning Process
+### Data Cleaning Process
 
 Our initial dataset contained 1,534 power outage records with 20 columns. The cleaning process focused on three key areas: timestamp standardization, handling of missing/zero values, and feature engineering.
 
@@ -107,9 +107,9 @@ Our missingness analysis focused on exploring dependencies between the missingne
 
 The distribution plots from our analysis provide visual evidence of these relationships. Looking at the visualization above, we can see distinct differences in the distribution of **MONTH** values between cases where ANOMALY.LEVEL is missing versus not missing. The permutation test visualization shows the empirical distribution of test statistics, with our observed difference marked by the red line. This distribution helps us understand the significance of our findings - while the **MONTH** relationship shows clear separation between missing and non-missing cases, the **CUSTOMERS.AFFECTED** relationship exhibits more overlap, supporting our statistical conclusions about their respective dependencies.
 
-# Statistical Analysis of Power Outage Patterns
+## Statistical Analysis of Power Outage Patterns
 
-## Hypothesis Test 1: Impact of Severe Weather on Outage Duration
+### Hypothesis Test 1: Impact of Severe Weather on Outage Duration
 
 For our first hypothesis test, we examined whether severe weather conditions lead to longer power outage durations compared to other causes. We formulated the following hypotheses:
 
@@ -118,7 +118,7 @@ For our first hypothesis test, we examined whether severe weather conditions lea
 
 We chose a permutation test with the difference in means as our test statistic, as it makes no assumptions about the underlying distribution of outage durations and is robust to outliers. Using 1,000 permutations and a significance level of α = 0.05, we obtained a p-value of 0.0000, with an observed difference in means of 2,399.86 minutes (approximately 40 hours). The extremely low p-value suggests strong evidence against the null hypothesis, indicating that outages caused by severe weather tend to last significantly longer than those caused by other factors. However, we should note that this does not prove causation, as there may be other confounding variables affecting outage duration.
 
-## Hypothesis Test 2: Regional Variations in Customer Impact
+### Hypothesis Test 2: Regional Variations in Customer Impact
 
 Our second analysis investigated whether different climate regions experience varying levels of customer impact during power outages:
 
