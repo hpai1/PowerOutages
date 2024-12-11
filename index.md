@@ -170,15 +170,15 @@ The following features are included in the model because they are both available
 
 We will use **Mean Absolute Error (MAE)** as the evaluation metric for the model. MAE is defined as:
 
-$
+$$
 \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |\hat{y}_i - y_i|
-$
+$$
 
 where:
 
-- $ \hat{y}\_i $: Predicted value
-- $ y_i $: Actual value
-- $ n $: Total number of predictions
+- $$ \hat{y}\_i $$: Predicted value
+- $$ y_i $$: Actual value
+- $$ n $$: Total number of predictions
 
 This metric is particularly effective for our use case because it provides a clear, interpretable measure of the average prediction error in the same units as the target variable (**CUSTOMERS.AFFECTED**).
 
@@ -213,9 +213,11 @@ The pipeline was fitted on the training data, learning the relationships between
 ### Results
 
 The calculated **Mean Absolute Error** for this baseline model was:
-$
+
+$$
 \text{MAE} = {132425.95}
-$
+$$
+
 This means that the difference between the predicted and actual number of affected customers was 132426 on average.
 
 ## Final Model
@@ -231,9 +233,11 @@ We also used Grid Search to test various hyperparameters such as `n_estimators`,
 ### Results
 
 The calculated **Mean Absolute Error** for this final model was:
-$
+
+$$
 \text{MAE} = {674.76}
-$
+$$
+
 where the Best Hyperparameters were `regressor__min_samples_split`: 2 and `regressor__n_estimators`: 200.
 
 We can definitely see that this model was a significant improvement on the previous one because the MSE went down by a lot.
