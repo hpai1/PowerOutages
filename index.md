@@ -48,7 +48,13 @@ After cleaning, our dataset maintained its 1,534 records but with a more focused
 - DEMAND.LOSS.MW: 901 missing values
 - OUTAGE.DURATION: 136 missing values
 
-<iframe src="head_md.md" width="800" height="600" frameborder="0"></iframe>
+| YEAR | MONTH | U.S.\_STATE | NERC.REGION | CLIMATE.REGION     | ANOMALY.LEVEL | CAUSE.CATEGORY     | OUTAGE.DURATION | DEMAND.LOSS.MW | CUSTOMERS.AFFECTED | TOTAL.PRICE | TOTAL.SALES | TOTAL.CUSTOMERS | OUTAGE.START        | OUTAGE.RESTORATION  |     URBAN | is_missing | Season | is_climate_missing |
+| ---: | ----: | :---------- | :---------- | :----------------- | ------------: | :----------------- | --------------: | -------------: | -----------------: | ----------: | ----------: | --------------: | :------------------ | :------------------ | --------: | :--------- | :----- | :----------------- |
+| 2011 |     7 | Minnesota   | MRO         | East North Central |          -0.3 | severe weather     |            3060 |            nan |              70000 |        9.28 |     6562520 |      2.5957e+06 | 2011-07-01 17:00:00 | 2011-07-03 20:00:00 | -0.506112 | False      | Summer | False              |
+| 2014 |     5 | Minnesota   | MRO         | East North Central |          -0.1 | intentional attack |               1 |            nan |                nan |        9.28 |     5284231 |     2.64074e+06 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00 | -0.506112 | False      | Spring | False              |
+| 2010 |    10 | Minnesota   | MRO         | East North Central |          -1.5 | severe weather     |            3000 |            nan |              70000 |        8.15 |     5222116 |      2.5869e+06 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00 | -0.506112 | False      | Fall   | False              |
+| 2012 |     6 | Minnesota   | MRO         | East North Central |          -0.1 | severe weather     |            2550 |            nan |              68200 |        9.19 |     5787064 |     2.60681e+06 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00 | -0.506112 | False      | Summer | False              |
+| 2015 |     7 | Minnesota   | MRO         | East North Central |           1.2 | severe weather     |            1740 |            250 |             250000 |       10.43 |     5970339 |     2.67353e+06 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00 | -0.506112 | False      | Summer | False              |
 
 ## Exploratory Data Analysis
 
@@ -88,7 +94,27 @@ The box plot of outage durations across climate regions shows substantial variat
 
 ### Regional Trends Over Time
 
-<iframe src="pivot_table.md" width="800" height="400" frameborder="0"></iframe>
+| CLIMATE.REGION  |            |                    |             |             |           |             |             |          |                     |
+| --------------- | ---------- | ------------------ | ----------- | ----------- | --------- | ----------- | ----------- | -------- | ------------------- |
+| YEAR            | Central    | East North Central | Northeast   | Northwest   | South     | Southeast   | Southwest   | West     | West North Central  |
+| --------------- | ---------- | ------------------ | ----------- | ----------- | --------- | ----------- | ----------- | -------- | ------------------- |
+| 2000            | 1200.00    | NaN                | 681.00      | NaN         | 903.00    | 5384.00     | 66.00       | NaN      | NaN                 |
+| 2001            | NaN        | NaN                | 298.50      | NaN         | 3915.67   | 241.00      | NaN         | 653.00   | NaN                 |
+| 2002            | 15420.00   | 3600.00            | 3130.00     | NaN         | 10020.00  | 1460.50     | NaN         | 3028.60  | NaN                 |
+| 2003            | 1842.83    | 7378.50            | 5127.08     | 4014.00     | 3476.33   | 998.83      | 67.50       | 8612.00  | NaN                 |
+| 2004            | 3586.00    | 5452.00            | 2406.14     | 3240.00     | 3686.18   | 3380.69     | 33019.33    | 1091.30  | 4.00                |
+| 2005            | 8427.60    | 5612.90            | 3269.33     | NaN         | 6348.36   | 7902.08     | NaN         | 1406.20  | NaN                 |
+| 2006            | 1895.83    | 6750.00            | 5062.06     | 6599.36     | 326.50    | 502.50      | 1289.50     | 2238.11  | 9600.00             |
+| 2007            | 2425.20    | 3600.67            | 2134.09     | 4158.00     | 4795.14   | 600.50      | 283.00      | 871.00   | NaN                 |
+| 2008            | 3697.12    | 5401.20            | 3425.33     | 224.00      | 13058.50  | 1341.93     | 871.00      | 1873.41  | 60.00               |
+| 2009            | 5135.20    | 12294.89           | 3112.80     | 1204.00     | 1631.05   | 1611.20     | 2308.33     | 451.42   | 115.33              |
+| 2010            | 4750.38    | 2995.15            | 5422.82     | 2580.00     | 1896.67   | 698.17      | 1333.00     | 1448.44  | 77.67               |
+| 2011            | 1969.31    | 3564.62            | 3703.20     | 558.15      | 1440.12   | 1169.00     | 608.93      | 2664.24  | 720.00              |
+| 2012            | 2940.90    | 2709.50            | 3181.84     | 524.50      | 1049.14   | 1205.18     | 124.80      | 1115.00  | NaN                 |
+| 2013            | 2082.27    | 3632.93            | 700.79      | 674.20      | 4412.79   | 584.23      | 429.50      | 592.00   | 42.00               |
+| 2014            | 1051.67    | 10037.35           | 5861.88     | 385.00      | 543.46    | 1780.67     | 82.82       | 308.83   | 56.00               |
+| 2015            | 168.50     | 1961.25            | 1692.40     | 1075.92     | 1452.88   | 1796.75     | 51.30       | 257.25   | NaN                 |
+| 2016            | 1199.00    | 1139.33            | 1771.31     | 775.71      | 1947.62   | 535.00      | 658.00      | 12433.75 | NaN                 |
 
 Looking at the relationship between outage duration and climate regions over time (shown in our pivot table), we observe varying patterns of restoration efficiency across different regions. The East North Central region, for example, shows a trend toward shorter outage durations in recent years, while the West region exhibits more variable restoration times. This regional variation could be attributed to differences in infrastructure resilience, local response capabilities, and the predominant types of outage causes in each region.
 
@@ -168,17 +194,7 @@ The following features are included in the model because they are both available
 
 ### Evaluation Metric
 
-We will use **Mean Absolute Error (MAE)** as the evaluation metric for the model. MAE is defined as:
-
-$$
-\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |\hat{y}_i - y_i|
-$$
-
-where:
-
-- $ \hat{y}\_i $: Predicted value
-- $ y_i $: Actual value
-- $ n $: Total number of predictions
+We will use **Mean Absolute Error (MAE)** as the evaluation metric for the model. MAE is the sum of absoluteValue(predY - actualY) for all y divided by the number of predictions (n).
 
 This metric is particularly effective for our use case because it provides a clear, interpretable measure of the average prediction error in the same units as the target variable (**CUSTOMERS.AFFECTED**).
 
@@ -214,9 +230,7 @@ The pipeline was fitted on the training data, learning the relationships between
 
 The calculated **Mean Absolute Error** for this baseline model was:
 
-$$
-\text{MAE} = 132425.95
-$$
+MAE = 132425.95
 
 This means that the difference between the predicted and actual number of affected customers was 132426 on average.
 
@@ -234,13 +248,11 @@ We also used Grid Search to test various hyperparameters such as `n_estimators`,
 
 The calculated **Mean Absolute Error** for this final model was:
 
-$$
-\text{MAE} = 674.76
-$$
+MAE = 674.76
 
 where the Best Hyperparameters were `regressor__min_samples_split`: 2 and `regressor__n_estimators`: 200.
 
-We can definitely see that this model was a significant improvement on the previous one because the MAE went down by a lot.
+We can definitely see that this model was a significant improvement on the previous one because the MSE went down by a lot.
 
 # Fairness Analysis: Rural vs. Urban States
 
