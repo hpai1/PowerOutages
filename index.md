@@ -176,9 +176,9 @@ $$
 
 where:
 
-- $$ \hat{y}\_i $$: Predicted value
-- $$ y_i $$: Actual value
-- $$ n $$: Total number of predictions
+- $ \hat{y}\_i $: Predicted value
+- $ y_i $: Actual value
+- $ n $: Total number of predictions
 
 This metric is particularly effective for our use case because it provides a clear, interpretable measure of the average prediction error in the same units as the target variable (**CUSTOMERS.AFFECTED**).
 
@@ -215,7 +215,7 @@ The pipeline was fitted on the training data, learning the relationships between
 The calculated **Mean Absolute Error** for this baseline model was:
 
 $$
-\text{MAE} = {132425.95}
+\text{MAE} = 132425.95
 $$
 
 This means that the difference between the predicted and actual number of affected customers was 132426 on average.
@@ -235,7 +235,7 @@ We also used Grid Search to test various hyperparameters such as `n_estimators`,
 The calculated **Mean Absolute Error** for this final model was:
 
 $$
-\text{MAE} = {674.76}
+\text{MAE} = 674.76
 $$
 
 where the Best Hyperparameters were `regressor__min_samples_split`: 2 and `regressor__n_estimators`: 200.
