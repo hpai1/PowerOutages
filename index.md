@@ -240,7 +240,7 @@ $$
 
 where the Best Hyperparameters were `regressor__min_samples_split`: 2 and `regressor__n_estimators`: 200.
 
-We can definitely see that this model was a significant improvement on the previous one because the MSE went down by a lot.
+We can definitely see that this model was a significant improvement on the previous one because the MAE went down by a lot.
 
 # Fairness Analysis: Rural vs. Urban States
 
