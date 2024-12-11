@@ -60,13 +60,13 @@ The histogram of outage durations reveals a highly right-skewed distribution, wi
 
 ### Causes of Power Outages
 
-  <iframe src="distribution_causes.html" width="800" height="600" frameborder="0"></iframe>
+ <iframe src="distribution_causes.html" width="800" height="600" frameborder="0"></iframe>
 
 The bar chart of outage causes shows that **severe weather** is by far the most common cause, accounting for nearly half of all recorded outages. This is followed by **intentional attacks** as the second most frequent cause, with other categories like system operability disruption, public appeal, and equipment failure occurring less frequently. Islanding and fuel supply emergencies are the least common causes in our dataset.
 
 ### Duration and Impact Analysis
 
-<iframe src="distribution_impact.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="duration_impact.html" width="800" height="600" frameborder="0"></iframe>
 
 The scatter plot of customers affected versus outage duration reveals several interesting patterns:
 
@@ -190,8 +190,8 @@ For our Baseline model, we predicted number of customers affected by power outag
 
 - **Target Variable Handling**: Rows with missing values in the target variable (`CUSTOMERS.AFFECTED`) were removed to ensure the model has valid training data.
 - **Feature Selection**:
-  - `YEAR` was included as a numerical feature to account for temporal trends in outages.
-  - `CAUSE.CATEGORY` was included as a categorical feature to capture the impact of different outage causes on the number of affected customers.
+- `YEAR` was included as a numerical feature to account for temporal trends in outages.
+- `CAUSE.CATEGORY` was included as a categorical feature to capture the impact of different outage causes on the number of affected customers.
 
 We decided to split the data into 80% training data and 20% testing data.
 
@@ -199,11 +199,12 @@ To make the code easier to follow and debug, we created pipelines for each of th
 
 1. **Preprocessor**:
 
-   - **One-Hot Encoding for `CAUSE.CATEGORY`**: Converts the categorical feature into a binary representation to be compatible with the linear regression model.
-   - **Passthrough for `YEAR`**: Retains the numeric feature without any transformation.
+- **One-Hot Encoding for `CAUSE.CATEGORY`**: Converts the categorical feature into a binary representation to be compatible with the linear regression model.
+- **Passthrough for `YEAR`**: Retains the numeric feature without any transformation.
 
 2. **Regressor**:
-   - A **Linear Regression** model was chosen as the baseline due to its simplicity and interpretability. It establishes a direct linear relationship between the features and the target variable.
+
+- A **Linear Regression** model was chosen as the baseline due to its simplicity and interpretability. It establishes a direct linear relationship between the features and the target variable.
 
 ### Model Training
 
